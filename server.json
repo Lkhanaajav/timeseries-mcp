@@ -1,0 +1,26 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
+  "name": "io.github.Lkhanaajav/timeseries-mcp",
+  "description": "Deterministic time-series statistics for AI agents: anomaly detection, changepoints, decomposition, trend tests, data-quality audits, baseline forecasts. Typed structured output, no code execution.",
+  "repository": {
+    "url": "https://github.com/Lkhanaajav/timeseries-mcp",
+    "source": "github"
+  },
+  "version": "0.1.0",
+  "packages": [
+    {
+      "registry_type": "pypi",
+      "identifier": "timeseries-mcp",
+      "version": "0.1.0",
+      "transport": { "type": "stdio" },
+      "environment_variables": [
+        {
+          "name": "TIMESERIES_MCP_DATA_ROOT",
+          "description": "Directory CSV loading is sandboxed to (default: server working directory).",
+          "is_required": false,
+          "is_secret": false
+        }
+      ]
+    }
+  ]
+}
