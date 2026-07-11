@@ -1,0 +1,59 @@
+[project]
+name = "timeseries-mcp"
+version = "0.1.0"
+description = "Deterministic time-series statistics for AI agents — typed, schema-validated MCP tools for anomaly detection, changepoints, decomposition, trend tests, and data-quality auditing. No code execution."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Lkhanaajav Mijiddorj", email = "lhanaamijgee@gmail.com" }]
+keywords = ["mcp", "model-context-protocol", "time-series", "anomaly-detection", "ai-agents", "statistics"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+]
+dependencies = [
+    "fastmcp>=3.4,<4",
+    "numpy>=1.26",
+    "pandas>=2.1",
+    "scipy>=1.11",
+    "statsmodels>=0.14",
+    "pydantic>=2.7",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "ruff>=0.4",
+]
+
+[project.scripts]
+timeseries-mcp = "timeseries_mcp.server:main"
+
+[project.urls]
+Homepage = "https://github.com/Lkhanaajav/timeseries-mcp"
+Issues = "https://github.com/Lkhanaajav/timeseries-mcp/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/timeseries_mcp"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["E501"]
